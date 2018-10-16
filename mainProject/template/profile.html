@@ -1,0 +1,49 @@
+	{% extends "base.html" %}
+	{% block head_title%}{{block.super}} || Profile {% endblock head_title%}
+	{% block content %}
+		
+	
+	<div class="row" style="background-color: #e1e1e180">	
+	<div class="col-md-4" >
+		<h1>Profile</h1>
+			<ul>
+			<li>User Name: {{user.username}}</li>
+			<li>First Name: {{user.first_name}}</li>
+			<li>Last Name: {{user.last_name}}</li>
+			<li>Email address: {{user.email}}</li>
+			<a href="/profile/profile-edit" class="btn btn-info">Edit Profile</a>
+
+
+		</ul>
+
+
+	</div>
+	<div class="col-md-4 offset-md-1" style="padding-top: 130px"><h1><b>Your Post</b> </h1></div>
+	</div>
+	<div>
+
+		<div class="row">
+
+		{% for obj in instance %}
+			<div class="col-md-4 offset-md-2">
+			
+			<!-- {% url 'bored:detail' obj.id %} --><br>
+
+
+			<br>
+			<div class="card" style="width: 18rem;">
+			<div class="card-body">
+				<h5 class="card-title">{{obj.title}}</h5>
+				<p class="card-text">{{obj.details | truncatechars:150}}</p>
+				 <a href="/profile/{{obj.id}}" class="btn btn-primary">View</a>
+
+				 
+			</div>
+			</div>
+			
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+	
+{% endblock content %}

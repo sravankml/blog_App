@@ -1,0 +1,33 @@
+	{% extends "base.html" %}
+	{% block head_title%}{{block.super}} {% endblock head_title%}
+	{% block content %}
+	<div class="row">
+		<div class="col-md-5" style="    padding-top: 200px; padding-left: 290px;">
+
+	    
+	    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+  <div class="card-header" style="text-align: center;">View idea </div>
+  <div class="card-body">
+    <a class="card-title"  href="/"><h5 style="color: white">Click here to View idea</h5></a>
+    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+  </div>
+</div>
+</div>
+<div class="col-md-4" style="  padding-top: 200px;    padding-left: 180px;">
+	    <div class="card text-white bg-success mb-3" style="max-width: 18rem; ">
+  <div class="card-header" style="text-align: center;">Add idea</div>
+  <div class="card-body">
+       <a class="card-title"  href="/create"><h5 style=" color: white">Click here to Add idea</h5></a>
+   
+  </div>
+</div>
+</div>
+<div class="col-md-6"></div>
+		
+	
+
+</div>
+ 
+
+	
+{% endblock content %}

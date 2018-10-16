@@ -1,0 +1,29 @@
+<!DOCTYPE html >
+	<html lang=en>
+	<head>
+		<title>{% block head_title%}Im Bored{% endblock head_title%}</title>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	
+		<link rel="stylesheet" type="text/css" href="static/css/bass.css">
+		
+
+		{% include 'snippets/css.html' %}
+	</head>
+	<body class="back" >
+		{% include 'snippets/nav.html' %}
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_IN/sdk.js#xfbml=1&version=v3.1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+		{% block content %}
+
+		{% endblock %}
+	</div>
+	{% include 'snippets/js.html' %}
+	</body>
+
+	</html>

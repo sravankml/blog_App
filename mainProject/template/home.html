@@ -1,0 +1,28 @@
+	{% extends "base.html" %}
+	{% block head_title%}{{block.super}}{% endblock head_title%}
+	{% block content %}
+	<a href="#" class="glyphicon glyphicon-trash"></a>
+	<div class="row">
+		{% for obj in box_num %}	
+			<div class="col-md-3 col-sm-6 offset-md-1 ">
+			
+			<!-- {% url 'bored:detail' obj.id %} --><br>
+
+
+			<br>
+			<div class="card" style="width: 18rem;">
+			<div class="card-body">
+				<h5 class="card-title">{{obj.title}}</h5>
+				<p class="card-text">{{obj.details | truncatechars:150}}</p>
+				 <a href="{{ obj.get_absolute_url }}" class="btn btn-primary">View</a>
+
+				 
+			</div>
+			</div>
+			
+			</div>
+			{% endfor %}
+		</div>
+	
+	{% endblock content %}
+

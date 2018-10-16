@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+ "{% load crispy_forms_tags %}" .
+	
+	{% block content %}
+	<div class="row" >
+			<div class="col-md-4 offset-md-3">
+<form  method="POST" action="" enctype="multipart/form-data">
+	{% csrf_token %} 
+	{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+  	<p> {{ forms.media }} </p>
+
+	<p>{{forms | crispy }}</p><br/>
+	<input type="submit" name="save">
+{% else %}
+  <p>You are not logged in</p>
+  <p>Pleas login to Post the ideas</p>
+{% endif %}
+</form>
+</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,71 @@
+
+{% extends "base.html"%}
+{% block head_title %}{{instances.title}} | block.super{% endblock head_title %}
+
+{% block content %}
+<div class="row">
+	<div class="col-md-2"></div>
+<div class="col-md-6">
+	<h1>{{title}}</h1>
+	<p>Posted by :{{instances.user_name}}</p><br>
+	<small>{{instances.timestamp}} ago</small>
+
+<!-- 	{% if username == name %}
+<a  href="delete">delete</a> <a  href="edit">edit</a>
+	{%endif%} -->
+		<!-- <div class="fb-like" data-href="{{request.build_absolute_ur}}" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div><br> -->
+		<hr>
+	<div class="post-detail-iteam">
+		{% if instances.image %}
+		<video width="320" height="240" autoplay>
+  <source src="{{instances.image.url}}" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+Your browser does not support the video tag.
+</video>
+		<!-- <video src="{{instances.image.url}}">vedio</video> -->
+		<!-- <img src="{{instances.image.url}}" class="img-responsive">		 -->
+		{% endif %}
+	{{instances.Discriptions| safe | linebreaks }}</div>
+		
+		
+	
+		<hr/>
+		<br/>
+	
+		<p class="lead">Comments</p>
+		{% if request.user.is_authenticated %}
+		<form method="POST" action=" ">{% csrf_token %}
+			{{comment_form}}<br>
+			  {{comt.user}}
+			 <!--  {{username}} -->
+			<input type="submit" value="post comment" class="btn btn-default">
+		</form>
+		{% else %}
+		        <p>You must login to comment </p>
+        {% endif %}
+		<hr/>
+		{% for comt in comment %}
+			<blockquote class="blockquote">
+			  <p class="mb-0">{{comt.content}}</p>
+			  {% if comt.user.id ==  request.user.id %}
+			   	<a href="{% url "comments" id=comt.id id1=instances.id %}" >delete</a>
+			   	{% endif %}<small>{{comt.timestamp}}</small>
+
+			  <footer class="blockquote-footer">commented by :{{comt.user}} </footer>
+
+			</blockquote>
+			<hr/>
+			{% endfor %}
+		<!-- 	{{instances.comments.all}} -->
+		</div>
+		
+		
+		<!-- <h2>{{instances.id}}</h2> -->
+</div>
+<!-- <div class="fb-comments" data-href="{{request.build_absolute_ur}}" data-numposts="8">
+	<div class="fb-comments" data-href="{{request.build_absolute_ur}}" data-numposts="8">
+<div class="col-md-4"></div> -->
+</div>
+
+{% endblock content %}
+

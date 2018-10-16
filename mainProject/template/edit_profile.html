@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+	{% block head_title%}{{block.super}} || Profile {% endblock head_title%}
+	{% block content %}
+		<form method="POST">
+			 {% csrf_token %}
+	{{forms.as_p}}
+	<input type="submit" name="">
+	</form>
+{% endblock content %}
